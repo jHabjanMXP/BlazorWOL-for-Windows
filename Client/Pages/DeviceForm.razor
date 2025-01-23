@@ -7,13 +7,13 @@
         <DataAnnotationsValidator />
 
         <div class="name">
-            <span class="caption">デバイス名</span>
+            <span class="caption">Device Name</span>
             <span class="input-field">
                 <input type="text" @bind="Item.Name" />
             </span>
         </div>
         <div class="mac-address">
-            <span class="caption">MACアドレス</span>
+            <span class="caption">MAC Address</span>
             <span class="input-field">
                 <input type="text" @bind="Item.MACAddress" />
             </span>
@@ -24,10 +24,10 @@
         <div class="actions">
             @if (OnClickDelete != null)
             {
-                <button class="button delete-button" type="button" @onclick="OnDelete">削除</button>
+                <button class="button delete-button" type="button" @onclick="OnDelete">Delete</button>
             }
             <button class="button">OK</button>
-            <a class="button" href="@(NavigationManager.BaseUri)">キャンセル</a>
+            <a class="button" href="@(NavigationManager.BaseUri)">Cancel</a>
         </div>
     </EditForm>
 </div>
@@ -44,7 +44,7 @@
 
     async Task OnOK()
     {
-        // MACアドレスの正規化
+        // MAC Address Normalization
         Item.MACAddress = Item.MACAddress.Replace("-", ":").ToUpper();
 
         await OnClickOK?.Invoke(Item);
@@ -52,7 +52,7 @@
 
     async Task OnDelete()
     {
-        var yes = await JSRuntime.InvokeAsync<bool>("confirm", "削除してもよろしいですか?");
+        var yes = await JSRuntime.InvokeAsync<bool>("confirm", "Are you sure you want to delete?");
         if (yes)
         {
             await OnClickDelete?.Invoke();

@@ -7,22 +7,22 @@
 {
     <div @key="@device.Id" class="device">
         <div class="name">
-            <span class="caption">デバイス名</span>
+            <span class="caption">Device Name</span>
             <span class="value">@device.Name</span>
         </div>
         <div class="mac-address">
-            <span class="caption">MACアドレス</span>
+            <span class="caption">MAC Address</span>
             <span class="value">@device.MACAddress</span>
         </div>
         <div class="actions">
-            <button class="button wakeup-button" @onclick="() => OnClickWakeup(device)">電源ON</button>
-            <button class=" button edit-button" @onclick="() => OnClickEdit(device)">編集</button>
+            <button class="button wakeup-button" @onclick="() => OnClickWakeup(device)">Power ON</button>
+            <button class=" button edit-button" @onclick="() => OnClickEdit(device)">Edit</button>
         </div>
     </div>
 }
 
 <div>
-    <a class="button" href="@(NavigationManager.BaseUri)addnew">デバイスの追加</a>
+    <a class="button" href="@(NavigationManager.BaseUri)addnew">Add Device</a>
 </div>
 
 @code {
@@ -41,6 +41,6 @@
     async Task OnClickWakeup(Device device)
     {
         await DeviceService.WakeupAsync(device.Id);
-        await JSRuntime.InvokeAsync<object>("alert", "マジックパケットを送信しました。");
+        await JSRuntime.InvokeAsync<object>("alert", "Sent magic packet");
     }
 }

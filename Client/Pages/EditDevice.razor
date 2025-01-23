@@ -2,7 +2,7 @@
 @inject DeviceService DeviceService
 @inject NavigationManager NavigationManager
 
-@if (initialized == true)
+@if (initialized)
 {
     @if (Item != null)
     {
@@ -10,7 +10,7 @@
     }
     else
     {
-        <p class="error-message">デバイス情報が見つかりません。</p>
+        <p class="error-message">Device information not found</p>
     }
 }
 
