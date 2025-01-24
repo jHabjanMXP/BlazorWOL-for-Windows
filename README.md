@@ -1,10 +1,8 @@
 # Blazor WOL for Windows
 
 ## Building and publishing
-- run Folder profile on Client project
-- run Folder profile on Server project
-- zip files in `Server\bin\Release\netcoreapp3.1\publish` and place them on server
-- when deployed to IIS, set configuration variable for base-href in appsettings.json
+- run `PublishProjects.ps1`
+- check zip in `Output` folder
 ## Summary
 
 This application provides a Web UI to sending a "WOL" (Wake up On Lan) magic packet, on Windows OS.
